@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <script>
+
+        function TexteYaz(deger) {
+            var sayi = deger.value;
+            document.getElementById("txtDisplay").value += sayi;
+        }
+
+        function Temizle() {
+            sayi = 0;
+            sonuc = 0;
+            islem = "";
+            oncekiIslem = "";
+            txtDisplay.value = "";
+        }
+
+        var sayi = 0, sonuc = 0;
+        var islem = "", oncekiIslem = "";
+
+        function SayiyiTut(deger) {
+
+            sayi = Number(txtDisplay.value);
+            txtDisplay.value = "";
+            oncekiIslem = islem;
+            islem = deger;
+
+            if (islem == "+" && oncekiIslem != "=") {
+                Topla(sayi);
+            }
+            else if (islem == "*" && oncekiIslem != "=") {
+                Carp(sayi);
+            }
+            else if (islem == "-" && oncekiIslem != "=") {
+                Cikar(sayi);
+            }
+            else if (islem == "/" && oncekiIslem != "=") {
+                Bol(sayi);
+            }
+
+            if (oncekiIslem != "=" && oncekiIslem != "") {
+
+                if (oncekiIslem == "+" && islem == "=") {
+                    Topla(sayi);
+                    txtDisplay.value = sonuc;
+                }
+                else if (oncekiIslem == "-" && islem == "=") {
+                    Cikar(sayi);
+                    txtDisplay.value = sonuc;
+                }
+                else if (oncekiIslem == "*" && islem == "=") {
+                    Carp(sayi);
+                    txtDisplay.value = sonuc;
+                }
+                else if (oncekiIslem == "/" && islem == "=") {
+                    Bol(sayi);
+                    txtDisplay.value = sonuc;
+                }
+
+            }
+        }
+
+        function Topla(gelenSayi) {
+            sonuc = sonuc + gelenSayi;
+        }
+
+        function Cikar(gelenSayi) {
+            var sayi2 = 0;
+
+            if (sonuc == null) {
+                sonuc = gelenSayi;
+            }
+            else {
+                sayi2 = gelenSayi;
+                sonuc = sonuc - sayi2;
+            }
+        }
+
+        function Carp(gelenSayi) {
+            var sayi2 = 0;
+
+            if (sonuc == null) {
+                sonuc = gelenSayi;
+            }
+            else {
+                sayi2 = gelenSayi;
+                sonuc = sonuc * sayi2;
+            }
+        }
+
+        function Bol(gelenSayi) {
+            var sayi2 = 0;
+            if (sonuc == null) {
+                sonuc = gelenSayi;
+            }
+            else {
+                if (gelenSayi == 0) {
+                    alert("0'a bölme hatası");
+                }
+                else {
+                    sayi2 = gelenSayi;
+                    sonuc = sonuc / gelenSayi;
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="table-responsive col-md-3 col-lg-3 col-sm-4">
+        <table class="table">
+            <tr>
+                <td colspan="4"><input id="txtDisplay" type="text" style="background-color:green;font-weight:bold;width:100%;color:white;text-align:right;" /></td>
+            </tr>
+            <tr>
+                <td><input id="btn7" type="button" value="7" class="btn-success" style="font-weight:bold; width:50px;height:50px;" onclick="TexteYaz(btn7)" /></td>
+
+                <td><input id="btn8" type="button" value="8" class="btn-success" style="font-weight:bold;width:50px;height:50px;" onclick="TexteYaz(btn8)" /></td>
+
+                <td><input id="btn9" type="button" value="9" class="btn-success" style="font-weight:bold;width:50px;height:50px;" onclick="TexteYaz(btn9)" /></td>
+
+                <td><input id="btnPlus" type="button" value="+" class="btn-warning" style="font-weight:bold;width:50px;height:50px;" onclick="SayiyiTut(btnPlus.value)" /></td>
+            </tr>
+            <tr>
+                <td><input id="btn4" type="button" value="4" class="btn-success" style="font-weight:bold; width:50px;height:50px;" onclick="TexteYaz(btn4)" /></td>
+
+                <td><input id="btn5" type="button" value="5" class="btn-success" style="font-weight:bold;width:50px;height:50px;" onclick="TexteYaz(btn5)" /></td>
+
+                <td><input id="btn6" type="button" value="6" class="btn-success" style="font-weight:bold;width:50px;height:50px;" onclick="TexteYaz(btn6)" /></td>
+
+                <td><input id="btnMinus" type="button" value="-" class="btn-warning" style="font-weight:bold;width:50px;height:50px;" onclick="SayiyiTut(btnMinus.value)" /></td>
+            </tr>
+            <tr>
+                <td><input id="btn1" type="button" value="1" class="btn-success" style="font-weight:bold; width:50px;height:50px;" onclick="TexteYaz(btn1)" /></td>
+
+                <td><input id="btn2" type="button" value="2" class="btn-success" style="font-weight:bold;width:50px;height:50px;" onclick="TexteYaz(btn2)" /></td>
+
+                <td><input id="btn3" type="button" value="3" class="btn-success" style="font-weight:bold;width:50px;height:50px;" onclick="TexteYaz(btn3)" /></td>
+
+                <td><input id="btnCross" type="button" value="*" class="btn-warning" style="font-weight:bold;width:50px;height:50px;" onclick="SayiyiTut(btnCross.value)" /></td>
+            </tr>
+            <tr>
+                <td><input id="btn0" type="button" value="0" class="btn-success" style="font-weight:bold; width:50px;height:50px;" onclick="TexteYaz(btn0)" /></td>
+
+                <td><input id="btnC" type="button" value="C" class="btn-success" style="font-weight:bold;width:50px;height:50px;" onclick="Temizle()" /></td>
+
+                <td><input id="btnEqual" type="button" value="=" class="btn-success" style="font-weight:bold;width:50px;height:50px;" onclick="SayiyiTut(btnEqual.value)" /></td>
+
+                <td><input id="btnDivide" type="button" value="/" class="btn-warning" style="font-weight:bold;width:50px;height:50px;" onclick="SayiyiTut(btnDivide.value)" /></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

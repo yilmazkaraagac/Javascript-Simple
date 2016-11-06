@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        var result;
+        function FaktoriyelAl() {
+            result = prompt("Faktöriyeli alınacak sayıyı girin:");
+
+            if (isFinite(result) && result > -1) {
+                Number(result);
+                var sonuc = 1;
+                for (var i = 1; i <= result; i++) {
+                    sonuc = sonuc * i;
+                }
+                alert(result + " sayısının faktöriyeli: " + sonuc);
+            }
+            else {
+                alert("Doğru birdeğer girmediniz.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="Button1" type="button" value="Faktöriyel" onclick="FaktoriyelAl()" />
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        function Listele() {
+            var dizi = new Array();
+            var mesaj = "";
+            dizi[0] = 0;
+            dizi[1] = 1;
+            if (Text1.value > 2) {
+                for (var i = 2; i < Text1.value; i++) {
+                    dizi[i] = dizi[i - 1] + dizi[i - 2];
+                    
+                }
+                for (var i = 0; i < dizi.length; i++) {
+                    mesaj += dizi[i] + "-";
+                }
+            }
+            else if (Text1.value == 1) {
+                lblFibo.innerHTML = "0";
+            }
+            else if (Text1.value == 2) {
+                lblFibo.innerHTML = "0-1";
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <label style="display:inline-block">Kaç adet Fibonacci sayısının listelenmesini istiyorsunuz?</label>
+        <input id="Text1" type="text" />
+        <input id="Button1" type="button" value="Listele" onclick="Listele()" style="display:inline-block;"/>
+        <label id="lblFibo"></label>
+    </div>
+</body>
+</html>

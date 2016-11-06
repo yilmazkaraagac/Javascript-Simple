@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        function GeometrikOrtalamaAl() {
+            var result = 0;
+            var sayi = new Array();
+
+            for (var i = 0; i < 5; i++) {
+                result = prompt((i + 1) + ". sayıyı giriniz: ");
+                if (isFinite(result)) {
+                    Number(result);
+                    sayi[i] = result;
+                }
+                else {
+                    alert("Sayı girmediniz!");
+                    break;
+                }
+            }
+            var sonuc = 1;
+            var mesaj = "";
+            for (i in sayi) {
+                sonuc = sonuc * sayi[i];
+                mesaj += sayi[i] + ", ";
+            }
+            alert(mesaj + " sayılarının geometrik ortalaması: " + Math.pow(sonuc, (1 / 5)));
+        }
+    </script>
+</head>
+<body>
+    <input id="Button1" type="button" value="Geometrik Ortalama" onclick="GeometrikOrtalamaAl()" />
+</body>
+</html>
